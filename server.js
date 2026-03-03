@@ -220,6 +220,13 @@ app.get('/api/backlog', (_req, res) => {
     { id: 'Q-66', severity: 'P3', repo: 'tinyfish-cookbook', title: 'Empty catch block in search.ts JSON parse — comment added', status: 'resolved', category: 'quality' },
     { id: 'Q-67', severity: 'P3', repo: 'GitNexus', title: 'Empty catch block in html-viewer.ts mermaid render — console.warn added', status: 'resolved', category: 'quality' },
     { id: 'Q-68', severity: 'P3', repo: 'get-shit-done', title: 'Empty catch blocks in hooks (4 locations) — comments added', status: 'resolved', category: 'quality' },
+    // Cycle 13
+    { id: 'Q-69', severity: 'P2', repo: 'CollabCode', title: 'XSS via unescaped interview tags in app.js innerHTML — escapeHTML() applied', status: 'resolved', category: 'security' },
+    { id: 'Q-70', severity: 'P2', repo: 'tinyfish-cookbook', title: 'XSS via unsanitized marked.parse() + dangerouslySetInnerHTML — HTML renderer escapes raw tags', status: 'resolved', category: 'security' },
+    { id: 'Q-71', severity: 'P3', repo: 'tinyfish-cookbook', title: 'Dead Save button in competitor dashboard — wired up updateCompetitor context call', status: 'resolved', category: 'quality' },
+    { id: 'Q-72', severity: 'P3', repo: 'CollabCode', title: 'Unescaped session.code in data attribute and table cell — escapeHTML() applied', status: 'resolved', category: 'quality' },
+    { id: 'Q-73', severity: 'P3', repo: 'GitNexus', title: '8 unnecessary (as any) casts in csv-generator.ts — properties already typed', status: 'resolved', category: 'quality' },
+    { id: 'Q-74', severity: 'P3', repo: 'GitNexus', title: 'SQL injection in dropFTSIndex string interpolation — single quotes escaped', status: 'resolved', category: 'quality' },
   ]);
 });
 
@@ -227,8 +234,8 @@ app.get('/api/backlog', (_req, res) => {
 app.get('/api/scan-summary', (_req, res) => {
   res.json({
     lastScan: new Date().toISOString(),
-    totals: { P0: 11, P1: 22, P2: 26, P3: 39, total: 98 },
-    resolved: { P0: 11, P1: 21, P2: 24, P3: 31, total: 87 },
+    totals: { P0: 11, P1: 22, P2: 28, P3: 43, total: 104 },
+    resolved: { P0: 11, P1: 21, P2: 26, P3: 35, total: 93 },
     remaining: { P0: 0, P1: 1, P2: 2, P3: 8, total: 11 },
     openItems: ['P2-1: CollabCode Firebase SDK v3.5.2 (2016) — severely outdated', 'Q-30: CollabCode Firebase Realtime DB rules world-writable', 'Q-40: SlayZone .then() chains without .catch()', 'Q-41: SlayZone buttons without aria-label', 'Q-42: n8n-mcp magic scoring numbers', 'Q-44: superpowers execSync string-form', 'Q-49: GitNexus eval-server no body limit (localhost)', 'Q-50: get-shit-done RegExp from config', 'Q-52: SlayZone TOCTOU symlink ops', 'Q-53: tinyfish-cookbook Math.random() examples', 'Q-55: GitNexus eval-server error disclosure (localhost)'],
     cleanRepos: ['context7', 'jules-action', 'claude-code-scheduler', 'obsidian-skills', 'ui-ux-pro-max-skill', 'awesome-claude-code'],
