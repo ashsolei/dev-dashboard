@@ -195,6 +195,17 @@ app.get('/api/backlog', (_req, res) => {
     { id: 'Q-42', severity: 'P3', repo: 'n8n-mcp', title: 'Hardcoded magic scoring numbers — deferred (refactoring)', status: 'open', category: 'quality' },
     { id: 'Q-43', severity: 'P3', repo: 'CollabCode', title: 'APP_DOMAIN validated at runtime — fails fast if not set', status: 'resolved', category: 'quality' },
     { id: 'Q-44', severity: 'P3', repo: 'superpowers', title: 'execSync string-form commands (implicit shell:true) — informational', status: 'open', category: 'quality' },
+    { id: 'Q-45', severity: 'P2', repo: 'n8n-mcp', title: 'ReDoS via unguarded new RegExp() — added 128-char length limit', status: 'resolved', category: 'security' },
+    { id: 'Q-46', severity: 'P2', repo: 'n8n-mcp', title: 'No body size limit on POST /mcp — added 1MB cap with 413', status: 'resolved', category: 'security' },
+    { id: 'Q-47', severity: 'P2', repo: 'n8n-mcp', title: 'Missing Content-Type validation — added application/json check', status: 'resolved', category: 'security' },
+    { id: 'Q-48', severity: 'P3', repo: 'GitNexus', title: 'Error info disclosure in 10 API catch blocks — generic messages', status: 'resolved', category: 'security' },
+    { id: 'Q-49', severity: 'P3', repo: 'GitNexus', title: 'eval-server no body limit — localhost-only, deferred', status: 'open', category: 'security' },
+    { id: 'Q-50', severity: 'P3', repo: 'get-shit-done', title: 'RegExp from config file — low risk, deferred', status: 'open', category: 'security' },
+    { id: 'Q-51', severity: 'P3', repo: 'CollabCode', title: 'Math.random() for user IDs — replaced with crypto.getRandomValues', status: 'resolved', category: 'security' },
+    { id: 'Q-52', severity: 'P3', repo: 'SlayZone', title: 'TOCTOU in symlink ops — desktop app, deferred', status: 'open', category: 'security' },
+    { id: 'Q-53', severity: 'P3', repo: 'tinyfish-cookbook', title: 'Math.random() in cookbook examples — non-production, deferred', status: 'open', category: 'quality' },
+    { id: 'Q-54', severity: 'P3', repo: 'n8n-mcp', title: 'Error message leak on /test-tools endpoint — generic error', status: 'resolved', category: 'security' },
+    { id: 'Q-55', severity: 'P3', repo: 'GitNexus', title: 'eval-server error disclosure — localhost-only, deferred', status: 'open', category: 'security' },
   ]);
 });
 
@@ -202,12 +213,12 @@ app.get('/api/backlog', (_req, res) => {
 app.get('/api/scan-summary', (_req, res) => {
   res.json({
     lastScan: new Date().toISOString(),
-    totals: { P0: 11, P1: 22, P2: 20, P3: 21, total: 74 },
-    resolved: { P0: 11, P1: 21, P2: 18, P3: 18, total: 68 },
-    remaining: { P0: 0, P1: 1, P2: 2, P3: 3, total: 6 },
-    openItems: ['P2-1: CollabCode Firebase SDK v3.5.2 (2016) — severely outdated', 'Q-30: CollabCode Firebase Realtime DB rules world-writable', 'Q-40: SlayZone .then() chains without .catch()', 'Q-41: SlayZone buttons without aria-label', 'Q-42: n8n-mcp magic scoring numbers', 'Q-44: superpowers execSync string-form'],
-    cleanRepos: ['context7', 'jules-action', 'claude-code-scheduler', 'obsidian-skills', 'ui-ux-pro-max-skill', 'awesome-claude-code', 'SlayZone', 'GitNexus', 'n8n-mcp', 'tinyfish-cookbook', 'superpowers', 'get-shit-done'],
-    affectedRepos: ['CollabCode'],
+    totals: { P0: 11, P1: 22, P2: 23, P3: 29, total: 85 },
+    resolved: { P0: 11, P1: 21, P2: 21, P3: 21, total: 74 },
+    remaining: { P0: 0, P1: 1, P2: 2, P3: 8, total: 11 },
+    openItems: ['P2-1: CollabCode Firebase SDK v3.5.2 (2016) — severely outdated', 'Q-30: CollabCode Firebase Realtime DB rules world-writable', 'Q-40: SlayZone .then() chains without .catch()', 'Q-41: SlayZone buttons without aria-label', 'Q-42: n8n-mcp magic scoring numbers', 'Q-44: superpowers execSync string-form', 'Q-49: GitNexus eval-server no body limit (localhost)', 'Q-50: get-shit-done RegExp from config', 'Q-52: SlayZone TOCTOU symlink ops', 'Q-53: tinyfish-cookbook Math.random() examples', 'Q-55: GitNexus eval-server error disclosure (localhost)'],
+    cleanRepos: ['context7', 'jules-action', 'claude-code-scheduler', 'obsidian-skills', 'ui-ux-pro-max-skill', 'awesome-claude-code'],
+    affectedRepos: ['CollabCode', 'n8n-mcp', 'GitNexus', 'get-shit-done', 'SlayZone', 'tinyfish-cookbook', 'superpowers'],
   });
 });
 
