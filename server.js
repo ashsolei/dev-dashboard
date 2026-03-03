@@ -161,6 +161,11 @@ app.get('/api/backlog', (_req, res) => {
     { id: 'Q-13', severity: 'P3', repo: 'CollabCode', title: 'package.json: added license (MIT) and author + .editorconfig', status: 'resolved', category: 'quality' },
     { id: 'Q-14', severity: 'P2', repo: 'jules-action', title: 'CI workflow (action.yaml validation, example checks) + .editorconfig', status: 'resolved', category: 'quality' },
     { id: 'Q-15', severity: 'P3', repo: '*', title: '.editorconfig rollout across all 13 repos (utf-8, lf, 2-space indent)', status: 'resolved', category: 'quality' },
+    // Cycle 5 - Dependency cleanup, security headers, .nvmrc rollout
+    { id: 'Q-16', severity: 'P1', repo: 'CollabCode', title: 'Removed 7 unused production deps (morgan, cookie-parser, dompurify, etc.)', status: 'resolved', category: 'quality' },
+    { id: 'Q-17', severity: 'P1', repo: 'context7', title: 'Moved @types/express from deps to devDeps', status: 'resolved', category: 'quality' },
+    { id: 'Q-18', severity: 'P1', repo: 'context7', title: 'Added security headers middleware (5 headers) to MCP HTTP server', status: 'resolved', category: 'security' },
+    { id: 'Q-19', severity: 'P3', repo: '*', title: '.nvmrc (Node 22 LTS) rollout across 7 Node.js repos', status: 'resolved', category: 'quality' },
   ]);
 });
 
@@ -168,8 +173,8 @@ app.get('/api/backlog', (_req, res) => {
 app.get('/api/scan-summary', (_req, res) => {
   res.json({
     lastScan: new Date().toISOString(),
-    totals: { P0: 10, P1: 12, P2: 7, P3: 15, total: 44 },
-    resolved: { P0: 10, P1: 12, P2: 6, P3: 15, total: 43 },
+    totals: { P0: 10, P1: 15, P2: 7, P3: 16, total: 48 },
+    resolved: { P0: 10, P1: 15, P2: 6, P3: 16, total: 47 },
     remaining: { P0: 0, P1: 0, P2: 1, P3: 0, total: 1 },
     openItems: ['P2-1: CollabCode Firebase SDK v3.5.2 (2016) — severely outdated'],
     cleanRepos: ['context7', 'jules-action', 'claude-code-scheduler', 'obsidian-skills', 'ui-ux-pro-max-skill', 'awesome-claude-code', 'SlayZone', 'GitNexus', 'n8n-mcp', 'tinyfish-cookbook', 'superpowers', 'get-shit-done'],
