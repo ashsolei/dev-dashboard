@@ -166,6 +166,11 @@ app.get('/api/backlog', (_req, res) => {
     { id: 'Q-17', severity: 'P1', repo: 'context7', title: 'Moved @types/express from deps to devDeps', status: 'resolved', category: 'quality' },
     { id: 'Q-18', severity: 'P1', repo: 'context7', title: 'Added security headers middleware (5 headers) to MCP HTTP server', status: 'resolved', category: 'security' },
     { id: 'Q-19', severity: 'P3', repo: '*', title: '.nvmrc (Node 22 LTS) rollout across 7 Node.js repos', status: 'resolved', category: 'quality' },
+    // Cycle 6 - CORS fix, docker-compose cleanup, coverage thresholds
+    { id: 'Q-20', severity: 'P1', repo: 'CollabCode', title: 'CORS wildcard origin replaced with req.headers.origin reflection (9 endpoints)', status: 'resolved', category: 'security' },
+    { id: 'Q-21', severity: 'P2', repo: 'n8n-mcp', title: 'Removed obsolete docker-compose version: 3.8 from 5 files', status: 'resolved', category: 'quality' },
+    { id: 'Q-22', severity: 'P2', repo: 'claude-code-scheduler', title: 'Added vitest coverage thresholds (v8 provider, 80% min)', status: 'resolved', category: 'quality' },
+    { id: 'Q-23', severity: 'P2', repo: 'awesome-claude-code', title: 'Added coverage fail_under = 80 to pyproject.toml', status: 'resolved', category: 'quality' },
   ]);
 });
 
@@ -173,8 +178,8 @@ app.get('/api/backlog', (_req, res) => {
 app.get('/api/scan-summary', (_req, res) => {
   res.json({
     lastScan: new Date().toISOString(),
-    totals: { P0: 10, P1: 15, P2: 7, P3: 16, total: 48 },
-    resolved: { P0: 10, P1: 15, P2: 6, P3: 16, total: 47 },
+    totals: { P0: 10, P1: 16, P2: 10, P3: 16, total: 52 },
+    resolved: { P0: 10, P1: 16, P2: 9, P3: 16, total: 51 },
     remaining: { P0: 0, P1: 0, P2: 1, P3: 0, total: 1 },
     openItems: ['P2-1: CollabCode Firebase SDK v3.5.2 (2016) — severely outdated'],
     cleanRepos: ['context7', 'jules-action', 'claude-code-scheduler', 'obsidian-skills', 'ui-ux-pro-max-skill', 'awesome-claude-code', 'SlayZone', 'GitNexus', 'n8n-mcp', 'tinyfish-cookbook', 'superpowers', 'get-shit-done'],
