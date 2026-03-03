@@ -184,6 +184,17 @@ app.get('/api/backlog', (_req, res) => {
     { id: 'Q-31', severity: 'P2', repo: 'tinyfish-cookbook', title: 'Tracked .env file removed from scholarship-finder (git rm --cached)', status: 'resolved', category: 'security' },
     { id: 'Q-32', severity: 'P2', repo: 'claude-code-scheduler', title: '.gitignore missing .env rules — added .env, .env.local, .env.*.local', status: 'resolved', category: 'quality' },
     { id: 'Q-33', severity: 'P3', repo: 'CollabCode', title: 'Path traversal in dev server serve.js — __dirname guard added', status: 'resolved', category: 'security' },
+    { id: 'Q-34', severity: 'P0', repo: 'CollabCode', title: 'Code execution endpoint: added CORS/security headers + memory limits (128MB)', status: 'resolved', category: 'security' },
+    { id: 'Q-35', severity: 'P1', repo: 'CollabCode', title: 'Slack endpoint now requires JWT auth; activity/track-session use session-code auth', status: 'resolved', category: 'security' },
+    { id: 'Q-36', severity: 'P1', repo: 'CollabCode', title: 'In-memory Maps capped at 10K entries to prevent DoS', status: 'resolved', category: 'security' },
+    { id: 'Q-37', severity: 'P2', repo: 'CollabCode', title: 'Auth debug data (hash, resetUrl) no longer leaked on preview deploys', status: 'resolved', category: 'security' },
+    { id: 'Q-38', severity: 'P2', repo: 'CollabCode', title: 'Sender email uses SENDGRID_FROM_EMAIL env var instead of placeholder', status: 'resolved', category: 'quality' },
+    { id: 'Q-39', severity: 'P2', repo: 'n8n-mcp', title: 'Database init promise now has .catch() error handler', status: 'resolved', category: 'quality' },
+    { id: 'Q-40', severity: 'P2', repo: 'SlayZone', title: '37 of 44 .then() chains lack .catch() — deferred (large refactor)', status: 'open', category: 'quality' },
+    { id: 'Q-41', severity: 'P3', repo: 'SlayZone', title: '121 buttons without aria-label — deferred (large effort)', status: 'open', category: 'accessibility' },
+    { id: 'Q-42', severity: 'P3', repo: 'n8n-mcp', title: 'Hardcoded magic scoring numbers — deferred (refactoring)', status: 'open', category: 'quality' },
+    { id: 'Q-43', severity: 'P3', repo: 'CollabCode', title: 'APP_DOMAIN validated at runtime — fails fast if not set', status: 'resolved', category: 'quality' },
+    { id: 'Q-44', severity: 'P3', repo: 'superpowers', title: 'execSync string-form commands (implicit shell:true) — informational', status: 'open', category: 'quality' },
   ]);
 });
 
@@ -191,10 +202,10 @@ app.get('/api/backlog', (_req, res) => {
 app.get('/api/scan-summary', (_req, res) => {
   res.json({
     lastScan: new Date().toISOString(),
-    totals: { P0: 10, P1: 20, P2: 16, P3: 17, total: 63 },
-    resolved: { P0: 10, P1: 19, P2: 15, P3: 17, total: 61 },
-    remaining: { P0: 0, P1: 1, P2: 1, P3: 0, total: 2 },
-    openItems: ['P2-1: CollabCode Firebase SDK v3.5.2 (2016) — severely outdated', 'Q-30: CollabCode Firebase Realtime DB rules world-writable'],
+    totals: { P0: 11, P1: 22, P2: 20, P3: 21, total: 74 },
+    resolved: { P0: 11, P1: 21, P2: 18, P3: 18, total: 68 },
+    remaining: { P0: 0, P1: 1, P2: 2, P3: 3, total: 6 },
+    openItems: ['P2-1: CollabCode Firebase SDK v3.5.2 (2016) — severely outdated', 'Q-30: CollabCode Firebase Realtime DB rules world-writable', 'Q-40: SlayZone .then() chains without .catch()', 'Q-41: SlayZone buttons without aria-label', 'Q-42: n8n-mcp magic scoring numbers', 'Q-44: superpowers execSync string-form'],
     cleanRepos: ['context7', 'jules-action', 'claude-code-scheduler', 'obsidian-skills', 'ui-ux-pro-max-skill', 'awesome-claude-code', 'SlayZone', 'GitNexus', 'n8n-mcp', 'tinyfish-cookbook', 'superpowers', 'get-shit-done'],
     affectedRepos: ['CollabCode'],
   });
