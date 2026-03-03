@@ -149,6 +149,12 @@ app.get('/api/backlog', (_req, res) => {
     { id: 'Q-3', severity: 'P3', repo: 'superpowers', title: '.gitignore updated (node_modules, dist, .env added)', status: 'resolved', category: 'quality' },
     { id: 'Q-4', severity: 'P3', repo: 'get-shit-done', title: '.gitignore updated + dead execSync import removed', status: 'resolved', category: 'quality' },
     { id: 'Q-5', severity: 'P3', repo: 'get-shit-done', title: 'execSync → execFileSync in hooks/gsd-check-update.js', status: 'resolved', category: 'security' },
+    // Cycle 3 - Quality & CI improvements
+    { id: 'Q-6', severity: 'P3', repo: 'SlayZone', title: 'package.json: added description, repository, keywords', status: 'resolved', category: 'quality' },
+    { id: 'Q-7', severity: 'P3', repo: 'tinyfish-cookbook', title: '.gitignore created + 43MB demo video removed from tracking', status: 'resolved', category: 'quality' },
+    { id: 'Q-8', severity: 'P2', repo: 'claude-code-scheduler', title: 'CI workflow added (Node 18/20/22 matrix, typecheck + vitest)', status: 'resolved', category: 'quality' },
+    { id: 'Q-9', severity: 'P3', repo: 'n8n-mcp', title: 'engines field added to package.json (node >=18)', status: 'resolved', category: 'quality' },
+    { id: 'Q-10', severity: 'P2', repo: 'CollabCode', title: 'CI workflow + package-lock.json + repository/keywords metadata', status: 'resolved', category: 'quality' },
   ]);
 });
 
@@ -156,8 +162,8 @@ app.get('/api/backlog', (_req, res) => {
 app.get('/api/scan-summary', (_req, res) => {
   res.json({
     lastScan: new Date().toISOString(),
-    totals: { P0: 10, P1: 12, P2: 4, P3: 8, total: 34 },
-    resolved: { P0: 10, P1: 12, P2: 3, P3: 8, total: 33 },
+    totals: { P0: 10, P1: 12, P2: 6, P3: 11, total: 39 },
+    resolved: { P0: 10, P1: 12, P2: 5, P3: 11, total: 38 },
     remaining: { P0: 0, P1: 0, P2: 1, P3: 0, total: 1 },
     openItems: ['P2-1: CollabCode Firebase SDK v3.5.2 (2016) — severely outdated'],
     cleanRepos: ['context7', 'jules-action', 'claude-code-scheduler', 'obsidian-skills', 'ui-ux-pro-max-skill', 'awesome-claude-code', 'SlayZone', 'GitNexus', 'n8n-mcp', 'tinyfish-cookbook', 'superpowers', 'get-shit-done'],
