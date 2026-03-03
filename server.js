@@ -241,6 +241,11 @@ app.get('/api/backlog', (_req, res) => {
     { id: 'Q-86', severity: 'P3', repo: 'n8n-mcp', title: 'Unsafe string concatenation for healthz URL — replaced with URL constructor', status: 'resolved', category: 'quality' },
     { id: 'Q-87', severity: 'P3', repo: 'CollabCode', title: 'Unbounded suspiciousPatterns array growth — capped at 100 entries', status: 'resolved', category: 'quality' },
     { id: 'Q-88', severity: 'P3', repo: 'CollabCode', title: 'setInterval calls without cleanup handles — stored handles and added stopActivityMonitor()', status: 'resolved', category: 'quality' },
+    { id: 'Q-89', severity: 'P2', repo: 'CollabCode', title: 'HTTP server without .on(error) handler — added EADDRINUSE and socket error handling', status: 'resolved', category: 'reliability' },
+    { id: 'Q-91', severity: 'P2', repo: 'GitNexus', title: 'eval-server HTTP server without .on(error) handler — added error handler', status: 'resolved', category: 'reliability' },
+    { id: 'Q-92', severity: 'P2', repo: 'GitNexus', title: 'WriteStream without .on(error) in csv-generator — attached handler in constructor', status: 'resolved', category: 'reliability' },
+    { id: 'Q-93', severity: 'P2', repo: 'GitNexus', title: 'Express server without .on(error) handler — added EADDRINUSE handling', status: 'resolved', category: 'reliability' },
+    { id: 'Q-94', severity: 'P3', repo: 'ui-ux-pro-max-skill', title: 'fetch() calls without timeout — added AbortSignal.timeout(15s) to GitHub API calls', status: 'resolved', category: 'quality' },
   ]);
 });
 
@@ -248,12 +253,12 @@ app.get('/api/backlog', (_req, res) => {
 app.get('/api/scan-summary', (_req, res) => {
   res.json({
     lastScan: new Date().toISOString(),
-    totals: { P0: 11, P1: 22, P2: 32, P3: 53, total: 118 },
-    resolved: { P0: 11, P1: 21, P2: 30, P3: 45, total: 107 },
+    totals: { P0: 11, P1: 22, P2: 36, P3: 54, total: 123 },
+    resolved: { P0: 11, P1: 21, P2: 34, P3: 46, total: 112 },
     remaining: { P0: 0, P1: 1, P2: 2, P3: 8, total: 11 },
     openItems: ['P2-1: CollabCode Firebase SDK v3.5.2 (2016) — severely outdated', 'Q-30: CollabCode Firebase Realtime DB rules world-writable', 'Q-40: SlayZone .then() chains without .catch()', 'Q-41: SlayZone buttons without aria-label', 'Q-42: n8n-mcp magic scoring numbers', 'Q-44: superpowers execSync string-form', 'Q-49: GitNexus eval-server no body limit (localhost)', 'Q-50: get-shit-done RegExp from config', 'Q-52: SlayZone TOCTOU symlink ops', 'Q-53: tinyfish-cookbook Math.random() examples', 'Q-55: GitNexus eval-server error disclosure (localhost)'],
-    cleanRepos: ['context7', 'jules-action', 'claude-code-scheduler', 'obsidian-skills', 'ui-ux-pro-max-skill', 'awesome-claude-code'],
-    affectedRepos: ['CollabCode', 'n8n-mcp', 'GitNexus', 'get-shit-done', 'SlayZone', 'tinyfish-cookbook', 'superpowers'],
+    cleanRepos: ['context7', 'jules-action', 'claude-code-scheduler', 'obsidian-skills', 'awesome-claude-code'],
+    affectedRepos: ['CollabCode', 'n8n-mcp', 'GitNexus', 'get-shit-done', 'SlayZone', 'tinyfish-cookbook', 'superpowers', 'ui-ux-pro-max-skill'],
   });
 });
 
