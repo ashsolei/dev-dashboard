@@ -406,7 +406,7 @@ app.get('/api/backlog', (_req, res) => {
     { id: 'Q-37', severity: 'P2', repo: 'CollabCode', title: 'Auth debug data (hash, resetUrl) no longer leaked on preview deploys', status: 'resolved', category: 'security' },
     { id: 'Q-38', severity: 'P2', repo: 'CollabCode', title: 'Sender email uses SENDGRID_FROM_EMAIL env var instead of placeholder', status: 'resolved', category: 'quality' },
     { id: 'Q-39', severity: 'P2', repo: 'n8n-mcp', title: 'Database init promise now has .catch() error handler', status: 'resolved', category: 'quality' },
-    { id: 'Q-40', severity: 'P2', repo: 'SlayZone', title: '37 of 44 .then() chains lack .catch() — deferred (large refactor)', status: 'open', category: 'quality' },
+    { id: 'Q-40', severity: 'P2', repo: 'SlayZone', title: '27 .then() chains now have .catch(console.error) across 18 files', status: 'resolved', category: 'quality' },
     { id: 'Q-41', severity: 'P3', repo: 'SlayZone', title: '121 buttons without aria-label — deferred (large effort)', status: 'open', category: 'accessibility' },
     { id: 'Q-42', severity: 'P3', repo: 'n8n-mcp', title: 'Hardcoded magic scoring numbers — extracted to SEARCH_SCORE constants', status: 'resolved', category: 'quality' },
     { id: 'Q-43', severity: 'P3', repo: 'CollabCode', title: 'APP_DOMAIN validated at runtime — fails fast if not set', status: 'resolved', category: 'quality' },
@@ -470,9 +470,9 @@ app.get('/api/scan-summary', (_req, res) => {
   res.json({
     lastScan: new Date().toISOString(),
     totals: { P0: 11, P1: 22, P2: 36, P3: 54, total: 123 },
-    resolved: { P0: 11, P1: 21, P2: 34, P3: 51, total: 117 },
-    remaining: { P0: 0, P1: 1, P2: 2, P3: 3, total: 6 },
-    openItems: ['P2-1: CollabCode Firebase SDK v3.5.2 (2016) — severely outdated', 'Q-30: CollabCode Firebase Realtime DB rules world-writable', 'Q-40: SlayZone .then() chains without .catch()', 'Q-41: SlayZone buttons without aria-label', 'Q-44: superpowers execSync string-form', 'Q-53: tinyfish-cookbook Math.random() examples'],
+    resolved: { P0: 11, P1: 21, P2: 35, P3: 51, total: 118 },
+    remaining: { P0: 0, P1: 1, P2: 1, P3: 3, total: 5 },
+    openItems: ['P2-1: CollabCode Firebase SDK v3.5.2 (2016) — severely outdated', 'Q-30: CollabCode Firebase Realtime DB rules world-writable', 'Q-41: SlayZone buttons without aria-label', 'Q-44: superpowers execSync string-form', 'Q-53: tinyfish-cookbook Math.random() examples'],
     cleanRepos: ['context7', 'jules-action', 'claude-code-scheduler', 'obsidian-skills', 'awesome-claude-code', 'GitNexus', 'get-shit-done', 'n8n-mcp'],
     affectedRepos: ['CollabCode', 'n8n-mcp', 'GitNexus', 'get-shit-done', 'SlayZone', 'tinyfish-cookbook', 'superpowers', 'ui-ux-pro-max-skill'],
   });
