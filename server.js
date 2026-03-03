@@ -130,19 +130,25 @@ app.get('/api/backlog', (_req, res) => {
     { id: 'P1-6', severity: 'P1', repo: 'n8n-mcp', title: 'prepare-release.js all hardcoded commands — false positive', status: 'resolved', category: 'security' },
     { id: 'P1-7', severity: 'P1', repo: 'n8n-mcp', title: 'execSync → execFileSync + isValidGitRef in generate-release-notes.js', status: 'resolved', category: 'security' },
     { id: 'P1-8', severity: 'P1', repo: 'CollabCode', title: 'error.message removed from 500 response in execute.js', status: 'resolved', category: 'security' },
-    { id: 'P1-9', severity: 'P1', repo: 'CollabCode', title: 'Unhandled promise rejections in slack-integration.js', status: 'open', category: 'bug' },
-    { id: 'P1-10', severity: 'P1', repo: 'CollabCode', title: 'Unhandled promise rejections in firepad.js (6 chains)', status: 'open', category: 'bug' },
-    { id: 'P1-11', severity: 'P1', repo: 'CollabCode', title: 'Unhandled promise rejections in interview-notes.js', status: 'open', category: 'bug' },
-    { id: 'P1-12', severity: 'P1', repo: 'CollabCode', title: 'Unhandled promise rejections in activity-monitor.js', status: 'open', category: 'bug' },
+    { id: 'P1-9', severity: 'P1', repo: 'CollabCode', title: 'Unhandled promise rejections in slack-integration.js — .catch() added', status: 'resolved', category: 'bug' },
+    { id: 'P1-10', severity: 'P1', repo: 'CollabCode', title: 'Unhandled promise rejections in firepad.js — 6 .catch() handlers added', status: 'resolved', category: 'bug' },
+    { id: 'P1-11', severity: 'P1', repo: 'CollabCode', title: 'Unhandled promise rejections in interview-notes.js — .catch() + try/catch', status: 'resolved', category: 'bug' },
+    { id: 'P1-12', severity: 'P1', repo: 'CollabCode', title: 'Unhandled promise rejections in activity-monitor.js — 3 error callbacks', status: 'resolved', category: 'bug' },
     // P2 - Medium
     { id: 'P2-1', severity: 'P2', repo: 'CollabCode', title: 'Firebase SDK v3.5.2 (2016) — severely outdated', status: 'open', category: 'quality' },
-    { id: 'P2-2', severity: 'P2', repo: 'CollabCode', title: 'SSRF risk: Piston API URL from env without validation', status: 'open', category: 'security' },
+    { id: 'P2-2', severity: 'P2', repo: 'CollabCode', title: 'SSRF risk: Piston API URL — ALLOWED_PISTON_HOSTS allowlist added', status: 'resolved', category: 'security' },
     { id: 'P2-3', severity: 'P2', repo: 'get-shit-done', title: 'execSync string concat in core.cjs', status: 'resolved', category: 'security' },
     { id: 'P2-4', severity: 'P2', repo: 'get-shit-done', title: 'execSync in commands.cjs', status: 'resolved', category: 'security' },
     // P3 - Low (resolved from previous sessions)
     { id: 'R1', severity: 'P3', repo: 'SlayZone', title: 'Time-tracking files need commit', status: 'resolved' },
     { id: 'R2', severity: 'P3', repo: 'n8n-mcp', title: 'Stray :memory: file in repo root', status: 'resolved' },
     { id: 'R3', severity: 'P3', repo: 'get-shit-done', title: 'test-output.txt untracked artifact', status: 'resolved' },
+    // Cycle 2 - Quality improvements
+    { id: 'Q-1', severity: 'P3', repo: 'jules-action', title: '.gitignore created (node_modules, dist, .env)', status: 'resolved', category: 'quality' },
+    { id: 'Q-2', severity: 'P3', repo: 'obsidian-skills', title: '.gitignore created (node_modules, dist, .env)', status: 'resolved', category: 'quality' },
+    { id: 'Q-3', severity: 'P3', repo: 'superpowers', title: '.gitignore updated (node_modules, dist, .env added)', status: 'resolved', category: 'quality' },
+    { id: 'Q-4', severity: 'P3', repo: 'get-shit-done', title: '.gitignore updated + dead execSync import removed', status: 'resolved', category: 'quality' },
+    { id: 'Q-5', severity: 'P3', repo: 'get-shit-done', title: 'execSync → execFileSync in hooks/gsd-check-update.js', status: 'resolved', category: 'security' },
   ]);
 });
 
@@ -150,10 +156,11 @@ app.get('/api/backlog', (_req, res) => {
 app.get('/api/scan-summary', (_req, res) => {
   res.json({
     lastScan: new Date().toISOString(),
-    totals: { P0: 10, P1: 12, P2: 4, P3: 3, total: 29 },
-    resolved: { P0: 10, P1: 8, P2: 2, P3: 3, total: 23 },
-    remaining: { P0: 0, P1: 4, P2: 2, P3: 0, total: 6 },
-    cleanRepos: ['context7', 'jules-action', 'claude-code-scheduler', 'obsidian-skills', 'ui-ux-pro-max-skill', 'awesome-claude-code', 'SlayZone', 'GitNexus', 'n8n-mcp', 'tinyfish-cookbook'],
+    totals: { P0: 10, P1: 12, P2: 4, P3: 8, total: 34 },
+    resolved: { P0: 10, P1: 12, P2: 3, P3: 8, total: 33 },
+    remaining: { P0: 0, P1: 0, P2: 1, P3: 0, total: 1 },
+    openItems: ['P2-1: CollabCode Firebase SDK v3.5.2 (2016) — severely outdated'],
+    cleanRepos: ['context7', 'jules-action', 'claude-code-scheduler', 'obsidian-skills', 'ui-ux-pro-max-skill', 'awesome-claude-code', 'SlayZone', 'GitNexus', 'n8n-mcp', 'tinyfish-cookbook', 'superpowers', 'get-shit-done'],
     affectedRepos: ['CollabCode'],
   });
 });
