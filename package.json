@@ -9,6 +9,6 @@
     "health": "node scripts/health-check.js"
   },
   "dependencies": {
-    "express": "^4.21.0"
+    "express": "^5.2.1"
   }
 }
